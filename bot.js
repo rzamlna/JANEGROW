@@ -2,7 +2,7 @@
 // Growtopia status monitor (players + mods)
 // Source: bvaaweb API
 
-const WEBHOOK_URL = "https://discord.com/api/webhooks/1475087616289411174/zOhg4OZrAN2IQEXNWHXJBHh7REvctw6AlbgGDJn4MiHx-Cmj2_SkSY_mGeuHAfpZrZ9H";
+const WEBHOOK_URL = "https://discord.com/api/webhooks/1485598272302350366/J0ltMKVTfoFzPF8RDgtGJyKq8Ku8BPx8T9ZB__rUaxwskt4P2xcEnxGydPVLB3WJM_fI";
 const POLL_INTERVAL = 10_000; // 10 detik
 
 const USERNAME = "JANE";
