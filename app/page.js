@@ -105,4 +105,14 @@ fontSize: 14,
 }}
 >
 <div>⏱️ Auto refresh 10s</div>
-<div>{updated ? new Date(updated).toL
+<div>{updated ? new Date(updated).toLocaleTimeString("id-ID") : ""}</div>
+</div>
+
+<p style={{ marginTop: 14, color: "#8b949e", fontSize: 13 }}>
+API: <code style={{ color: "#79c0ff" }}>/api/players</code> •{" "}
+<code style={{ color: "#79c0ff" }}>/api/mods</code>
+</p>
+</section>
+</main>
+);
+}
