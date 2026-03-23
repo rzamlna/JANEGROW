@@ -24,7 +24,6 @@ change: Number(raw?.change || 0),
 percentage: Number(raw?.percentage || 0),
 status: raw?.status || "unknown",
 ts: Date.now(),
-source: "https://bvaaweb.vercel.app/api/players",
 });
 } catch (e) {
 return Response.json(
