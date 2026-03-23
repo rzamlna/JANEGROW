@@ -1,34 +1,34 @@
 export async function GET() {
 try {
-const upstream = await fetch("https://www.growtopiagame.com/detail", {
-headers: {
-"User-Agent":
-"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-"Accept": "application/json,text/plain,*/*",
-"Accept-Language": "en-US,en;q=0.9,id;q=0.8",
-"Referer": "https://www.growtopiagame.com/",
-"Origin": "https://www.growtopiagame.com",
-},
+const up = await fetch("https://bvaaweb.vercel.app/api/players", {
 cache: "no-store",
+headers: {
+"User-Agent": "Mozilla/5.0",
+Accept: "application/json,text/plain,*/*",
+},
 });
 
-if (!upstream.ok) {
+if (!up.ok) {
 return Response.json(
-{ ok: false, error: `Upstream error ${upstream.status}`, ts: Date.now() },
+{ ok: false, error: `Upstream ${up.status}`, ts: Date.now() },
 { status: 502 }
 );
 }
 
-const raw = await upstream.json();
+const raw = await up.json();
+
 return Response.json({
 ok: true,
-players: Number(raw?.online_user || 0),
+players: Number(raw?.count || 0),
+change: Number(raw?.change || 0),
+percentage: Number(raw?.percentage || 0),
+status: raw?.status || "unknown",
 ts: Date.now(),
-raw,
+source: "https://bvaaweb.vercel.app/api/players",
 });
-} catch (err) {
+} catch (e) {
 return Response.json(
-{ ok: false, error: err?.message || "Unknown error", ts: Date.now() },
+{ ok: false, error: e.message || "Unknown error", ts: Date.now() },
 { status: 500 }
 );
 }
