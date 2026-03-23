@@ -19,7 +19,7 @@ const data = await res.json();
 if (!data.ok) throw new Error(data.error || "Request failed");
 
 setPlayers(data.players);
-setStatus("Server status: ONLINE");
+setStatus(`Server status: ${String(data.status || "unknown").toUpperCase()}`);
 setUpdated(data.ts || Date.now());
 } catch (e) {
 setStatus(`Error: ${e.message}`);
@@ -87,7 +87,7 @@ API: <code style={{ color: "#79c0ff" }}>/api/players</code>
 <p style={{ marginTop: 8, color: "#8b949e", fontSize: 13 }}>
 Contact JANE:{" "}
 <span style={{ color: "#8b949e" }}>
-If you can use API, contact me:{" "}
+If you can’t use API, contact me:{" "}
 </span>
 <span style={{ color: "#79c0ff" }}>jane_username</span>
 </p>
